@@ -25,7 +25,7 @@ This app is a tool to record what books are in a library and who borrows them. T
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/imubarak234/Enumerable/issues).
+Feel free to check the [issues page](https://github.com/imubarak234/OOP-school-library/issues).
 
 ## Show your support
 
