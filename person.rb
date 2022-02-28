@@ -6,7 +6,7 @@ class Person
     @permission = parent_permission
   end
 
-  attr_reader :id, :name, :age
+  attr_reader :id, :name, :age, :permission
 
   def names(name)
     @name = name
@@ -17,7 +17,7 @@ class Person
   end
 
   def can_use_services?
-    true if @permission || is_of_age
+    true if @permission || of_age?
   end
 
   private
