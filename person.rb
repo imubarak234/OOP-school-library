@@ -1,12 +1,19 @@
+require_relative 'corrector'
+
 class Person
   def initialize(age, name = 'unknown', parent_permission: true)
     @id = Random.rand(1..2000)
     @name = name
     @age = age
     @permission = parent_permission
+    @correct = Corrector.new
   end
 
   attr_reader :id, :name, :age, :permission
+
+  def validate_name
+    @name = @correct.correct_name(@name)
+  end
 
   def names(name)
     @name = name
@@ -26,3 +33,7 @@ class Person
     true if @age >= 18
   end
 end
+
+test_ing = Person.new(20, 'mubatrkiisndjfsads')
+puts test_ing.name
+puts test_ing.validate_name
