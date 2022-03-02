@@ -6,6 +6,13 @@ class Student < Person
     @classroom = classroom
   end
 
+  attr_accessor :classroom
+
+  def classroom(classroom)
+    @classroom = classroom
+    classroom.student.push(self) unless classroom.student.include?(self)
+  end
+
   def play_hooky
     "¯\(ツ)/¯"
   end
