@@ -7,6 +7,7 @@ class Person
     @age = age
     @permission = parent_permission
     @correct = Corrector.new
+    @rental = []
   end
 
   attr_reader :id, :name, :age, :permission
