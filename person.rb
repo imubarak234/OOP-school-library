@@ -28,6 +28,10 @@ class Person
     true if @permission || of_age?
   end
 
+  def add_rental(book, data)
+    @rental.push(Rental.new(data, self, book))
+  end
+
   private
 
   def of_age?

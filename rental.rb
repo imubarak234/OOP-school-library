@@ -12,8 +12,7 @@ class Rental
     person.rental << self
   end
 
-  attr_accessor :date
-  attr_reader :book, :person
+  attr_accessor :date, :book, :person
 end
 
 mil = Book.new('make fly', 'pro smelly')
