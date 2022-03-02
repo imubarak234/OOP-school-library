@@ -17,7 +17,12 @@ end
 
 #classroom, age, name = 'Unknown', parent_permission: true
 class01 = Classroom.new('Firsts')
-mark = Student.new(class01, 23, 'Naira')
-queen = Student.new(class01, 30, 'Milk')
+mark = Student.new(23, 'Naira', class01)
+queen = Student.new(30, 'Milk', class01)
 
 puts mark.classroom
+
+class01.add_student(mark)
+class01.add_student(queen)
+
+puts class01.student
