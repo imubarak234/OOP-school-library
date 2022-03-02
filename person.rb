@@ -35,6 +35,6 @@ class Person
   end
 end
 
-#test_ing = Person.new(20, 'mubatrkiisndjfsads')
-#puts test_ing.name
-#puts test_ing.validate_name
+# test_ing = Person.new(20, 'mubatrkiisndjfsads')
+# puts test_ing.name
+# puts test_ing.validate_name

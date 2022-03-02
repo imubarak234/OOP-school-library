@@ -1,7 +1,6 @@
-require_relative './student.rb'
+require_relative './student'
 
 class Classroom
-
   def initialize(label)
     @label = label
     @student = []
@@ -15,7 +14,7 @@ class Classroom
   attr_reader :student
 end
 
-#classroom, age, name = 'Unknown', parent_permission: true
+# classroom, age, name = 'Unknown', parent_permission: true
 class01 = Classroom.new('Firsts')
 mark = Student.new(23, 'Naira', class01)
 queen = Student.new(30, 'Milk', class01)
