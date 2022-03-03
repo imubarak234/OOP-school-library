@@ -7,9 +7,10 @@ class Person
     @age = age
     @permission = parent_permission
     @correct = Corrector.new
+    @rental = []
   end
 
-  attr_reader :id, :name, :age, :permission
+  attr_reader :id, :name, :age, :permission, :rental
 
   def validate_name
     @name = @correct.correct_name(@name)
@@ -27,6 +28,10 @@ class Person
     true if @permission || of_age?
   end
 
+  def add_rental(book, data)
+    @rental.push(Rental.new(data, self, book))
+  end
+
   private
 
   def of_age?
@@ -34,6 +39,6 @@ class Person
   end
 end
 
-test_ing = Person.new(20, 'mubatrkiisndjfsads')
-puts test_ing.name
-puts test_ing.validate_name
+# test_ing = Person.new(20, 'mubatrkiisndjfsads')
+# puts test_ing.name
+# puts test_ing.validate_name
