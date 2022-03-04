@@ -2,20 +2,48 @@ require_relative './teacher'
 require_relative './student'
 require_relative './book'
 require_relative './rental'
+require_relative './classroom'
 
 $books = []
-$people = []
+$people = [] 
 
 def list_all_books
-  puts $books
+  puts $books.each { |n| puts n.to_string }
 end
 
 def list_all_people 
-  
+  $people.each { |n| puts n.to_string }
 end
 
-def create_a_teacher(age, specialization, name)
-  teach = Teacher.new(age, specialization, name)
+def create_a_teacher
+  default_classroom = Classroom.new('default')
+  puts "Do you want to create a Student (1) or a Teacher (2)? [Input the number]: "
+  var = gets.chomp
+ if var == "1"
+  puts "Age: "
+  age = gets.chomp
+  puts "Name: "
+  name = gets.chomp
+  puts "Has parent permission? [Y/N]: "
+  permission = gets.chomp
+  if permission.upcase == 'Y'
+    student = Student.new(age, default_classroom, name, parent_permission: true)
+  else
+    student = Student.new(age, default_classroom, name, parent_permission: false)
+  end
+  $people.push(student)
+ elsif var == "2"
+  puts "Age: "
+  age = gets.chomp
+  puts "Name: "
+  name = gets.chomp
+  puts "Specilaization"
+  specialization = gets.chomp
+  teacher = Teacher.new(age, specialization, name)
+  $people.push(teacher)
+ end
+  puts "Person created Succesfully"
+  #teach = Teacher.new(age, specialization, name)
 end
 
 def create_a_student(age, classroom, name)
@@ -50,11 +78,19 @@ def main
   while var != "7"
     menu
     var = gets.chomp
-    puts 'var ' + var
+   if var == "1"
+     list_all_books
+
+   elsif var == "2"
+    list_all_people
+
+   elsif var == "3"
+    create_a_teacher
+   end
   end
   puts "ended"
 end
 
-#main()
+main()
 
 #puts "#{$instance}"

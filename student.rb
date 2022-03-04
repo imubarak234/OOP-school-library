@@ -14,6 +14,10 @@ class Student < Person
     classroom.student.push(self) unless classroom.student.include?(self)
   end
 
+  def to_string
+    "Student #{super}"
+  end
+
   def play_hooky
     "¯\(ツ)/¯"
   end

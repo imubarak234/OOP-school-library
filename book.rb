@@ -9,6 +9,10 @@ class Book
     @rental.push(Rental.new(data, person, self))
   end
 
+  def to_string
+    "Author: #{@author} Title: #{@title}"
+  end
+
   attr_accessor :author, :title
   attr_reader :rental
 end
