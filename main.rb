@@ -6,6 +6,7 @@ require_relative './classroom'
 
 $books = []
 $people = [] 
+$rentals = []
 
 def list_all_books
   puts $books.each { |n| puts n.to_string }
@@ -15,7 +16,7 @@ def list_all_people
   $people.each { |n| puts n.to_string }
 end
 
-def create_a_teacher
+def create_a_person
   default_classroom = Classroom.new('default')
   puts "Do you want to create a Student (1) or a Teacher (2)? [Input the number]: "
   var = gets.chomp
@@ -43,23 +44,37 @@ def create_a_teacher
   $people.push(teacher)
  end
   puts "Person created Succesfully"
-  #teach = Teacher.new(age, specialization, name)
 end
 
-def create_a_student(age, classroom, name)
-  student = Student.new(age, classroom, name)
-end
-
-def create_a_book(title, author)
-
+def create_a_book
+  print "Title"
+  title = gets.chomp
+  print "Author"
+  author = gets.chomp
   book = Book.new(title, author)
+  @books.push(book)
+  puts "Book created Successfully"
 end
 
-def create_a_rental(date, person, book)
+def create_a_rental
+  puts "Select a book from the following list of books"
+  @books.each_with_index { |n, idx| puts "#{idx}) #{n.to_string}" }
+  var = gets.chomp
+  book = @books[var]
+  puts "Select a person from the following list by number"
+  @people.each_with_index { |n, idx| puts "#{idx}) #{n.to_string}" }
+  vars = gets.chomp
+  person = @people[vars]
+  puts "Enter a date"
+  date = gets.chomp
   rent = Rental.new(date, person, book)
+  ans = [rent, person.id]
+  @rentals.push(ans)
+  puts "Booked Rented Succesfully"
 end
 
-def list_rental_by_id(id)
+def list_rental_by_id
+  @rentals.each { |n| puts n.to_string }
 end
 
 def menu 
@@ -85,7 +100,16 @@ def main
     list_all_people
 
    elsif var == "3"
-    create_a_teacher
+    create_a_person
+
+   elsif var == "4"
+    create_a_book
+
+   elsif var == "5"
+    create_a_rental
+
+   elsif var == "6"
+    list_rental_by_id
    end
   end
   puts "ended"
