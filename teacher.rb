@@ -12,4 +12,8 @@ class Teacher < Person
   def can_use_services
     true
   end
+
+  def to_string
+    "Teacher #{super}"
+  end
 end

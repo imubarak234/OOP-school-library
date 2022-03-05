@@ -12,6 +12,10 @@ class Person
 
   attr_reader :id, :name, :age, :permission, :rental
 
+  def to_string
+    "ID: #{@id} Name: #{@name} Age: #{@age} Parental Permission: #{@permission}"
+  end
+
   def validate_name
     @name = @correct.correct_name(@name)
   end

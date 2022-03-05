@@ -12,6 +12,10 @@ class Rental
     person.rental << self
   end
 
+  def to_string
+    puts "Date: #{@date}, Book \"#{@book.title}\" by #{@book.author}"
+  end
+
   attr_accessor :date, :book, :person
 end
 
