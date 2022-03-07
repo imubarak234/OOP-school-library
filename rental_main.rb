@@ -1,6 +1,11 @@
+require_relative './rental'
+
 class Rental_main
-  @rentals = []
   
+  def initialize
+    @rentals = []
+  end
+
   def create_a_rental
     puts 'Select a book from the following list of books'
     @books.each_with_index { |n, idx| puts "#{idx}) #{n.to_string}" }

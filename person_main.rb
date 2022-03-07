@@ -1,8 +1,25 @@
+require_relative './teacher'
+require_relative './student'
+
 class Person_main
-  @people = []
-  
+  def initialize
+    @people = []
+  end
+
   def list_all_people
     @people.each { |n| puts n.to_string }
+  end
+
+  def create_a_person
+    puts 'Do you want to create a Student (1) or a Teacher (2)? [Input the number]: '
+    var = gets.chomp
+    case var
+    when '1'
+      create_a_student
+    when '2'
+      create_a_teacher
+    end
+    puts 'Person created Succesfully'
   end
 
   def create_a_student
@@ -30,17 +47,5 @@ class Person_main
     specialization = gets.chomp
     teacher = Teacher.new(age, specialization, name)
     @people.push(teacher)
-  end
-
-  def create_a_person
-    puts 'Do you want to create a Student (1) or a Teacher (2)? [Input the number]: '
-    var = gets.chomp
-    case var
-    when '1'
-      create_a_student
-    when '2'
-      create_a_teacher
-    end
-    puts 'Person created Succesfully'
   end
 end

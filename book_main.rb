@@ -1,6 +1,10 @@
+require_relative './book'
+
 class Book_main
-  @books = []
-  
+  def initialize
+    @books = []
+  end
+
   def list_all_books
     @books.each { |n| puts n.to_string }
   end
