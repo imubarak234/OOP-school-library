@@ -17,6 +17,7 @@ class Rentalmain
     rental.push(ans)
     puts 'Booked Rented Succesfully'
   end
+
   def list_rental_by_id(rental)
     print 'Enter ID: '
     var = gets.chomp
