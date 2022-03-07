@@ -8,13 +8,19 @@ require_relative './classroom'
 @people = []
 @rentals = []
 
-def list_all_books
-  @books.each { |n| puts n.to_string }
+class list_books
+  def list_all_books
+    @books.each { |n| puts n.to_string }
+  end
 end
 
-def list_all_people
-  @people.each { |n| puts n.to_string }
+class list_people 
+  def list_all_people
+    @people.each { |n| puts n.to_string }
+  end
 end
+
+class create_student
 
 def create_a_student
   default_classroom = Classroom.new('default')
