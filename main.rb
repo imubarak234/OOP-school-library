@@ -4,26 +4,26 @@ require_relative './book'
 require_relative './rental'
 require_relative './classroom'
 
+default_book = Book.new
+default_person = Person.new('20')
+defalut_rental = Rental.new
 
-
-class Option
   def option(args)
     case args
     when '1'
-      list_all_books
+      default_book.list_all_books
     when '2'
-      list_all_people
+      default_person.list_all_people
     when '3'
-      create_a_person
+      default_person.create_a_person
     when '4'
-      create_a_book
+      default_book.create_a_book
     when '5'
-      create_a_rental
+      defalut_rental.create_a_rental
     when '6'
-      list_rental_by_id
+      defalut_rental.list_rental_by_id
     end
   end
-end
 
 def menu
   puts 'Please choose an option by number!'
@@ -50,5 +50,3 @@ def main
 end
 
 main
-
-# puts "#{$instance}"
