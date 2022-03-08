@@ -3,90 +3,32 @@ require_relative './student'
 require_relative './book'
 require_relative './rental'
 require_relative './classroom'
+require_relative './book_main'
+require_relative './person_main'
+require_relative './rental_main'
+
+@default_person = Personmain.new
+@default_book = Bookmain.new
+@default_rental = Rentalmain.new
 
 @books = []
 @people = []
 @rentals = []
 
-def list_all_books
-  @books.each { |n| puts n.to_string }
-end
-
-def list_all_people
-  @people.each { |n| puts n.to_string }
-end
-
-def create_a_student
-  default_classroom = Classroom.new('default')
-  puts 'Age: '
-  age = gets.chomp
-  puts 'Name: '
-  name = gets.chomp
-  puts 'Has parent permission? [Y/N]: '
-  permission = gets.chomp
-  student = if permission.upcase == 'Y'
-              Student.new(age, default_classroom, name, parent_permission: true)
-            else
-              Student.new(age, default_classroom, name, parent_permission: false)
-            end
-  @people.push(student)
-end
-
-def create_a_teacher
-  puts 'Age: '
-  age = gets.chomp
-  puts 'Name: '
-  name = gets.chomp
-  puts 'Specilaization'
-  specialization = gets.chomp
-  teacher = Teacher.new(age, specialization, name)
-  @people.push(teacher)
-end
-
-def create_a_person
-  puts 'Do you want to create a Student (1) or a Teacher (2)? [Input the number]: '
-  var = gets.chomp
-  case var
+def option(args)
+  case args
   when '1'
-    create_a_student
+    @default_book.list_all_books(@books)
   when '2'
-    create_a_teacher
-  end
-  puts 'Person created Succesfully'
-end
-
-def create_a_book
-  print 'Title: '
-  title = gets.chomp
-  print 'Author: '
-  author = gets.chomp
-  book = Book.new(title, author)
-  @books.push(book)
-  puts 'Book created Successfully'
-end
-
-def create_a_rental
-  puts 'Select a book from the following list of books'
-  @books.each_with_index { |n, idx| puts "#{idx}) #{n.to_string}" }
-  var = gets.chomp
-  book = @books[var.to_i]
-  puts 'Select a person from the following list by number'
-  @people.each_with_index { |n, idx| puts "#{idx}) #{n.to_string}" }
-  vars = gets.chomp
-  person = @people[vars.to_i]
-  puts 'Enter a date'
-  date = gets.chomp
-  rent = Rental.new(date, person, book)
-  ans = [rent, person.id]
-  @rentals.push(ans)
-  puts 'Booked Rented Succesfully'
-end
-
-def list_rental_by_id
-  print 'Enter ID: '
-  var = gets.chomp
-  @rentals.each do |n|
-    puts n[0].to_string if n[1] == var.to_i
+    @default_person.list_all_people(@people)
+  when '3'
+    @default_person.create_a_person(@people)
+  when '4'
+    @default_book.create_a_book(@books)
+  when '5'
+    @default_rental.create_a_rental(@books, @people, @rentals)
+  when '6'
+    @default_rental.list_rental_by_id(@rentals)
   end
 end
 
@@ -99,23 +41,6 @@ def menu
   puts '5 - Create a rental'
   puts '6 - List all reantals for a given id'
   puts '7 - Exit'
-end
-
-def option(args)
-  case args
-  when '1'
-    list_all_books
-  when '2'
-    list_all_people
-  when '3'
-    create_a_person
-  when '4'
-    create_a_book
-  when '5'
-    create_a_rental
-  when '6'
-    list_rental_by_id
-  end
 end
 
 def main

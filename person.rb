@@ -1,4 +1,6 @@
 require_relative 'corrector'
+# require_relative './teacher'
+# require_relative './student'
 
 class Person
   def initialize(age, name = 'unknown', parent_permission: true)
@@ -42,7 +44,3 @@ class Person
     true if @age >= 18
   end
 end
-
-# test_ing = Person.new(20, 'mubatrkiisndjfsads')
-# puts test_ing.name
-# puts test_ing.validate_name
