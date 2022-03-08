@@ -7,6 +7,8 @@ require_relative './book_main'
 require_relative './person_main'
 require_relative './rental_main'
 
+require 'json'
+
 @default_person = Personmain.new
 @default_book = Bookmain.new
 @default_rental = Rentalmain.new
@@ -54,6 +56,19 @@ def main
   puts 'Thanks for using this App!'
 end
 
-main
+#main
 
+file = File.open("./text.txt")
+#file_data = File.foreach("./text.txt") { |line| puts line } 
+file_data = file.read
+#puts file_data
+file.close
+
+tests = ["e32e", 1231, 2132, "ewef", nil]
+#file1 = File.open("./tests.json")
+nexter = JSON.generate(tests)
+File.write('./tests.json', JSON.dump(nexter))
+file_ing = File.read('./tests.json')
+puts JSON.parse(file_ing)
+#puts nexter
 # puts "#{$instance}"
