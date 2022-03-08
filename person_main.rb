@@ -18,29 +18,42 @@ class Personmain
     puts 'Person created Succesfully'
   end
 
-  def create_a_student(people)
-    default_classroom = Classroom.new('default')
+  def user_name_inputs 
     puts 'Age: '
     age = gets.chomp
     puts 'Name: '
     name = gets.chomp
+
+    [age, name]
+  end
+
+  def user_permissions_inputs
+    default_classroom = Classroom.new('default')
+    age, name = user_name_inputs
     puts 'Has parent permission? [Y/N]: '
     permission = gets.chomp
     student = if permission.upcase == 'Y'
-                Student.new(age, default_classroom, name, parent_permission: true)
-              else
-                Student.new(age, default_classroom, name, parent_permission: false)
-              end
+      Student.new(age, default_classroom, name, parent_permission: true)
+    else
+      Student.new(age, default_classroom, name, parent_permission: false)
+    end
+    student
+  end
+
+  def create_a_student(people)
+    student = user_permissions_inputs
     people.push(student)
   end
 
-  def create_a_teacher(people)
-    puts 'Age: '
-    age = gets.chomp
-    puts 'Name: '
-    name = gets.chomp
+  def user_input_special
     puts 'Specilaization'
     specialization = gets.chomp
+    specialization
+  end
+
+  def create_a_teacher(people)
+    age, name = user_name_inputs
+    specialization = user_input_special
     teacher = Teacher.new(age, specialization, name)
     people.push(teacher)
   end
