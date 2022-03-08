@@ -1,25 +1,23 @@
 require_relative './rental'
 
 class Rentalmain
-
   def input_user_books(books)
     puts 'Select a book from the following list of books'
     books.each_with_index { |n, idx| puts "#{idx}) #{n.to_string}" }
     var = gets.chomp
-    book = books[var.to_i]
-    book
+    books[var.to_i]
   end
 
   def input_user_person(people)
     puts 'Select a person from the following list by number'
     people.each_with_index { |n, idx| puts "#{idx}) #{n.to_string}" }
     vars = gets.chomp
-    person = people[vars.to_i]
+    people[vars.to_i]
   end
 
   def input_user_date
     puts 'Enter a date'
-    date = gets.chomp
+    gets.chomp
   end
 
   def create_a_rental(books, people, rental)

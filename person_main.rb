@@ -18,7 +18,7 @@ class Personmain
     puts 'Person created Succesfully'
   end
 
-  def user_name_inputs 
+  def user_name_inputs
     puts 'Age: '
     age = gets.chomp
     puts 'Name: '
@@ -32,12 +32,11 @@ class Personmain
     age, name = user_name_inputs
     puts 'Has parent permission? [Y/N]: '
     permission = gets.chomp
-    student = if permission.upcase == 'Y'
+    if permission.upcase == 'Y'
       Student.new(age, default_classroom, name, parent_permission: true)
     else
       Student.new(age, default_classroom, name, parent_permission: false)
     end
-    student
   end
 
   def create_a_student(people)
@@ -47,8 +46,7 @@ class Personmain
 
   def user_input_special
     puts 'Specilaization'
-    specialization = gets.chomp
-    specialization
+    gets.chomp
   end
 
   def create_a_teacher(people)
