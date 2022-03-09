@@ -1,13 +1,13 @@
 require_relative 'person'
+require_relative './classroom'
 
 class Student < Person
-  def initialize(age, classroom, name = 'Unknown', parent_permission: true)
+  def initialize(age, name = 'Unknown', parent_permission: true)
     super(age, name, parent_permission: true)
     @permission = parent_permission
-    @classroom = classroom
   end
 
-  attr_accessor :classroom
+  attr_accessor :classroom, :name, :age, :permission
 
   def classrooms(classroom)
     @classroom = classroom
@@ -21,4 +21,10 @@ class Student < Person
   def play_hooky
     "¯\(ツ)/¯"
   end
+
+  def person?
+    'Student'
+  end
 end
+
+# var_ing = Classroom.new('kkkdd')

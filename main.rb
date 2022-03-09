@@ -6,10 +6,16 @@ require_relative './classroom'
 require_relative './book_main'
 require_relative './person_main'
 require_relative './rental_main'
+require_relative './save'
+require_relative './load'
+
+require 'json'
 
 @default_person = Personmain.new
 @default_book = Bookmain.new
 @default_rental = Rentalmain.new
+@default_save = Save.new
+@default_load = Load.new
 
 @books = []
 @people = []
@@ -44,6 +50,7 @@ def menu
 end
 
 def main
+  @default_load.load(@books, @people, @rentals)
   var = 0
   puts 'Welcome to The School Library App!'
   while var != '7'
@@ -52,8 +59,38 @@ def main
     option(var)
   end
   puts 'Thanks for using this App!'
+  @default_save.save(@books, @people, @rentals)
 end
 
 main
 
+# file = File.open("./text.txt")
+# file_data = File.foreach("./text.txt") { |line| puts line }
+# file_data = file.read
+# puts file_data
+# file.close
+
+# tests = ["e32e", 1231, 2132, "ewef", nil, nil]
+# test1 = ["e32e", 1231, 2132, "ewef", nil]
+# file1 = File.open("./tests.json")
+# args = "\nYou can do other things with files, besides reading & writing to them."
+# nexter = JSON.generate(tests)
+# nexting = JSON.generate(args)
+# File.write('./tests.json', nexting, mode:"a")
+
+# File.open("./tests.json", "w") do |f|
+#  f.write(JSON.pretty_generate(test1))
+# end
+
+# File.write("text.txt", args, mode:"a")
+# puts File.read("./text.txt")
+
+# file_ing = File.read('./tests.json')
+# puts "#{JSON.parse(file_ing)}"
+# puts nexter
 # puts "#{$instance}"
+
+# numb = Student.new('12', 'var', 'eqeeq', parent_permission: true)
+
+# var = numb.class
+# puts var.class

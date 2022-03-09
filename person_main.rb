@@ -28,14 +28,13 @@ class Personmain
   end
 
   def user_permissions_inputs
-    default_classroom = Classroom.new('default')
     age, name = user_name_inputs
     puts 'Has parent permission? [Y/N]: '
     permission = gets.chomp
     if permission.upcase == 'Y'
-      Student.new(age, default_classroom, name, parent_permission: true)
+      Student.new(age, name, parent_permission: true)
     else
-      Student.new(age, default_classroom, name, parent_permission: false)
+      Student.new(age, name, parent_permission: false)
     end
   end
 

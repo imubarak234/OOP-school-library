@@ -9,11 +9,17 @@ class Teacher < Person
 
   attr_reader :parent_permission
 
+  attr_accessor :specialization
+
   def can_use_services
     true
   end
 
   def to_string
     "Teacher #{super}"
+  end
+
+  def person?
+    'Teacher'
   end
 end
