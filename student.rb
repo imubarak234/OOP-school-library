@@ -22,10 +22,9 @@ class Student < Person
     "¯\(ツ)/¯"
   end
 
-  def is_person
-    "Student"
+  def person?
+    'Student'
   end
-
 end
 
-#var_ing = Classroom.new('kkkdd')
+# var_ing = Classroom.new('kkkdd')

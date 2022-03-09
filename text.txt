@@ -1,5 +1,0 @@
-Open the file, with the open method.
-Read the file, the whole file, line by line, or a specific amount of bytes.
-Close the file, with the close method.You can do other things with files, besides reading & writing to them.
-You can do other things with files, besides reading & writing to them.
-You can do other things with files, besides reading & writing to them.

@@ -19,8 +19,7 @@ class Teacher < Person
     "Teacher #{super}"
   end
 
-  def is_person
-    "Teacher"
+  def person?
+    'Teacher'
   end
-
 end

@@ -64,33 +64,33 @@ end
 
 main
 
-#file = File.open("./text.txt")
-#file_data = File.foreach("./text.txt") { |line| puts line } 
-#file_data = file.read
-#puts file_data
-#file.close
+# file = File.open("./text.txt")
+# file_data = File.foreach("./text.txt") { |line| puts line }
+# file_data = file.read
+# puts file_data
+# file.close
 
-#tests = ["e32e", 1231, 2132, "ewef", nil, nil]
-#test1 = ["e32e", 1231, 2132, "ewef", nil]
-#file1 = File.open("./tests.json")
-#args = "\nYou can do other things with files, besides reading & writing to them."
-#nexter = JSON.generate(tests)
-#nexting = JSON.generate(args)
-#File.write('./tests.json', nexting, mode:"a")
+# tests = ["e32e", 1231, 2132, "ewef", nil, nil]
+# test1 = ["e32e", 1231, 2132, "ewef", nil]
+# file1 = File.open("./tests.json")
+# args = "\nYou can do other things with files, besides reading & writing to them."
+# nexter = JSON.generate(tests)
+# nexting = JSON.generate(args)
+# File.write('./tests.json', nexting, mode:"a")
 
-#File.open("./tests.json", "w") do |f| 
+# File.open("./tests.json", "w") do |f|
 #  f.write(JSON.pretty_generate(test1))
-#end
+# end
 
-#File.write("text.txt", args, mode:"a")
-#puts File.read("./text.txt")
+# File.write("text.txt", args, mode:"a")
+# puts File.read("./text.txt")
 
-#file_ing = File.read('./tests.json')
-#puts "#{JSON.parse(file_ing)}"
-#puts nexter
+# file_ing = File.read('./tests.json')
+# puts "#{JSON.parse(file_ing)}"
+# puts nexter
 # puts "#{$instance}"
 
-#numb = Student.new('12', 'var', 'eqeeq', parent_permission: true)
+# numb = Student.new('12', 'var', 'eqeeq', parent_permission: true)
 
-#var = numb.class
-#puts var.class
+# var = numb.class
+# puts var.class
