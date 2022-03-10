@@ -1,5 +1,5 @@
 require_relative './person'
-require_relative './rental.rb'
+require_relative './rental'
 
 class Book
   def initialize(title, author)
