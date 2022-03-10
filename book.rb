@@ -1,3 +1,6 @@
+require_relative './person'
+require_relative './rental'
+
 class Book
   def initialize(title, author)
     @title = title
@@ -6,7 +9,8 @@ class Book
   end
 
   def add_rental(person, data)
-    @rental.push(Rental.new(data, person, self))
+    var = Rental.new(data, person, self)
+    @rental.push(var)
   end
 
   def to_string
